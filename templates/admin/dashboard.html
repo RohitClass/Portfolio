@@ -1,0 +1,55 @@
+{% extends "admin/layouts/app.html" %}
+
+{% block content %}
+
+{% include "admin/aside.html" %}
+<!--begin::Entry-->
+<div class="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
+    <div class=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <!--begin::Info-->
+        <div class="d-flex align-items-center flex-wrap mr-2">
+
+            <!--begin::Page Title-->
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+                Dashboard </h5>
+            <!--end::Page Title-->
+            <!--begin::Actions-->
+            <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
+
+            <!--end::Actions-->
+        </div>
+        <!--end::Info-->
+    </div>
+</div>
+<!-- {{-- <div class="d-flex flex-column-fluid">
+    begin::Container
+    <div class=" container card-fixed-align">
+        begin::Card
+        <div class="card card-custom">
+            <div class="card-body">
+                <table class="table table-bordered upcoming-dataTable">
+                    <thead>
+                        <tr>
+                            <th id="booking_start">Booking Date</th>
+                            <th id="amount">Amount</th>
+                            <th id="booking_id">Booking Id</th>
+                            <th id="yacht">Yacht</th>
+                            <th id="name">Name</th>
+                            <th id="mobile">Phone</th>
+                            <th id="status">Status</th>
+                            <th id="action">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        end::Card
+    </div>
+    end::Container
+</div> --}} -->
+<!--end::Entry-->
+</div>
+<!--end::Content-->
+{% endblock %}

@@ -1,0 +1,20 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}">
+            <span class="nav-icon"><em class="flaticon2-chat-1"></em></span>
+            <span class="nav-text">Profile</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'change_password' %}active{% endif %}"  href="{% url 'change_password' %}">
+            <span class="nav-icon"><em class="flaticon2-lock"></em></span>
+            <span class="nav-text">Change Password</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'social' %}active{% endif %}"  href="{% url 'social' %}">
+            <span class="nav-icon"><em class="flaticon2-open-box"></em></span>
+            <span class="nav-text">Social Media</span>
+        </a>
+    </li>
+</ul>

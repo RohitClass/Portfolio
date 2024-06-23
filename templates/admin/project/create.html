@@ -1,0 +1,127 @@
+{% extends "admin/layouts/app.html" %}
+
+{% block content %}
+
+{% include "admin/aside.html" %}
+<div class="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
+    <div class=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <!--begin::Info-->
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <!--begin::Page Title-->
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+                Project
+            </h5>
+            <!--end::Page Title-->
+        </div>
+        <!--end::Info-->
+    </div>
+</div>
+<!--end::Subheader-->
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class=" container card-fixed-align">
+        <!--begin::Card-->
+        <div>
+            <!-- {% include "admin/alert.html" %} -->
+            <div class="card card-custom">
+                <form action="{% url 'project_store' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="_token" id="csrf_token" value="">
+                    <input type="hidden" name="id" value="{% if id %}{{ project.id }}{% endif %}">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="title">Title</label>
+                                <div>
+                                    <input class="form-control" name="title" placeholder="Title" id="title" type="text"
+                                        value="{% if id %}{{ project.title }}{% else %}{{ form.title.value|default_if_none:'' }}{% endif %}">
+                                    {% if form.title.errors %}
+                                    <div class="invalid-feedback">{{ form.title.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="title">Sub Title</label>
+                                <div>
+                                    <input class="form-control" name="subTitle" placeholder="Sub Title" id="subTitle" type="text"
+                                        value="{% if id %}{{ project.subTitle }}{% else %}{{ form.subTitle.value|default_if_none:'' }}{% endif %}">
+                                    {% if form.subTitle.errors %}
+                                    <div class="invalid-feedback">{{ form.subTitle.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="image">
+                                    Image
+                                   <a href="" target="BLANK">
+                                        <em class="la la-eye text-success icon-md"></em>
+                                    </a>
+                                </label>
+                                <div>
+                                    <input class="form-control" name="image" id="image" type="file" value=""/>
+                                    {% if form.image.errors %}
+                                    <div class="invalid-feedback">{{ form.image.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="button">Button</label>
+                                <div>
+                                    <input class="form-control" name="button" placeholder="Button" id="heading"
+                                        type="text"
+                                        value="{% if id %}{{ project.button }}{% else %}{{ form.button.value|default_if_none:'' }}{% endif %}">
+                                    {% if form.button.errors %}
+                                    <div class="invalid-feedback">{{ form.button.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-form-label" for="buttonLink">Button Link</label>
+                                <div>
+                                    <input class="form-control" name="buttonLink" placeholder="Button Link" id="buttonLink" type="text"
+                                        value="{% if id %}{{ project.buttonLink }}{% else %}{{ form.buttonLink.value|default_if_none:'' }}{% endif %}">
+                                    {% if form.buttonLink.errors %}
+                                    <div class="invalid-feedback">{{ form.buttonLink.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" for="description">Description</label>
+                                <div>
+                                    <textarea class="ckeditor form-control" rows="3" name="description"
+                                        placeholder="Description"
+                                        id="description">{% if id %}{{ project.description }}{% else %}{{ form.description.value|default_if_none:'' }}{% endif %}</textarea>
+                                    {% if form.description.errors %}
+                                    <div class="invalid-feedback">{{ form.description.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-12">
+                                <div class="card-footer mt-4">
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-success mr-2">Submit</button>
+                                            <a href="{% url 'project' %}" class="btn btn-danger">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </form>
+            </div>
+            <!--end::Card-->
+        </div>
+        <!--end::Card-->
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Entry-->
+</div>
+<!--end::Content-->
+{% endblock %}
